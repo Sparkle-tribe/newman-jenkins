@@ -1,0 +1,144 @@
+{
+	"info": {
+		"_postman_id": "106e44cc-5fe6-4ea8-a04c-b3492c32d343",
+		"name": "Consolidated Balance Enquiry",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PrePaid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();",
+							"",
+							"",
+							"pm.test(\"Response time is less than 2s\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"/*",
+							"pm.test(\"Customer id is not null\", function () {",
+							"    pm.expect(jsonData.customerId).to.not.eql(null); ",
+							"});",
+							"*/",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "ZGeJgjv7X2x8G4GyITGtds7UVxnxKAll",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "X-API-Key",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://staging-nigeria.api.mtn.com/v2/customers/2349062059866/plans",
+					"protocol": "https",
+					"host": [
+						"staging-nigeria",
+						"api",
+						"mtn",
+						"com"
+					],
+					"path": [
+						"v2",
+						"customers",
+						"2349062059866",
+						"plans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostPaid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();",
+							"",
+							"",
+							"pm.test(\"Response time is less than 2s\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+							"});",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"/*",
+							"pm.test(\"Customer id is not null\", function () {",
+							"    pm.expect(jsonData.customerId).to.not.eql(null); ",
+							"});",
+							"",
+							"*/"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "ZGeJgjv7X2x8G4GyITGtds7UVxnxKAll",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "X-API-Key",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/v2/customers/2349062059866/plans",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"v2",
+						"customers",
+						"2349062059866",
+						"plans"
+					],
+					"query": [
+						{
+							"key": "2349062058922",
+							"value": "2349062059294",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
